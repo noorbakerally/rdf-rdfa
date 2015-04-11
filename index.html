@@ -1,40 +1,28 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Rdf-rdfa : Ruby RDFa reader/writer for RDF.rb." />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Rdf-rdfa</title>
+    <meta charset="UTF-8">
+    <title>Rdf-rdfa by ruby-rdf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Rdf-rdfa</h1>
+      <h2 class="project-tagline">Ruby RDFa reader/writer for RDF.rb.</h2>
+      <a href="https://github.com/ruby-rdf/rdf-rdfa" class="btn">View on GitHub</a>
+      <a href="https://github.com/ruby-rdf/rdf-rdfa/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/ruby-rdf/rdf-rdfa/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/ruby-rdf/rdf-rdfa">View on GitHub</a>
-
-          <h1 id="project_title">Rdf-rdfa</h1>
-          <h2 id="project_tagline">Ruby RDFa reader/writer for RDF.rb.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/ruby-rdf/rdf-rdfa/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/ruby-rdf/rdf-rdfa/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <p>This repository uses <a href="https://github.com/nvie/gitflow">Git Flow</a> to mange development and release activity. All submissions <em>must</em> be on a feature branch based on the <em>develop</em> branch to ease staging and integration.</p>
+    <section class="main-content">
+      <p>This repository uses <a href="https://github.com/nvie/gitflow">Git Flow</a> to mange development and release activity. All submissions <em>must</em> be on a feature branch based on the <em>develop</em> branch to ease staging and integration.</p>
 
 <h1>
-<a name="rdfrdfa-readerwriter" class="anchor" href="#rdfrdfa-readerwriter"><span class="octicon octicon-link"></span></a>RDF::RDFa reader/writer</h1>
+<a id="rdfrdfa-readerwriter" class="anchor" href="#rdfrdfa-readerwriter" aria-hidden="true"><span class="octicon octicon-link"></span></a>RDF::RDFa reader/writer</h1>
 
 <p><a href="http://www.w3.org/TR/2012/REC-rdfa-core-20120607/" title="RDFa 1.1 Core">RDFa</a> parser for RDF.rb.</p>
 
@@ -42,12 +30,12 @@
 <a href="http://travis-ci.org/ruby-rdf/rdf-rdfa"><img src="https://travis-ci.org/ruby-rdf/rdf-rdfa.png?branch=master" alt="Build Status"></a></p>
 
 <h2>
-<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>DESCRIPTION</h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>DESCRIPTION</h2>
 
 <p>RDF::RDFa is an RDFa reader and writer for Ruby using the <a href="http://rubygems.org/gems/rdf">RDF.rb</a> library suite.</p>
 
 <h2>
-<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>FEATURES</h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>FEATURES</h2>
 
 <p>RDF::RDFa parses <a href="http://www.w3.org/TR/2012/REC-rdfa-core-20120607/" title="RDFa 1.1 Core">RDFa</a> into statements or triples.</p>
 
@@ -59,25 +47,32 @@
 <li>Writer uses user-replacable <a href="http://haml-lang.com/">Haml</a>-based templates to generate RDFa.</li>
 </ul>
 </li>
-<li>If available, Uses Nokogiri for parsing HTML/SVG, falls back to REXML otherwise (and for JRuby)</li>
-<li>
-<a href="http://rdfa.info/test-suite/" title="RDFa test suite">RDFa tests</a> use SPARQL for most tests due to Rasqal limitations. Other tests compare directly against N-triples.</li>
-</ul><p>Install with 'gem install rdf-rdfa'</p>
+<li>If available, uses Nokogiri for parsing HTML/SVG, falls back to REXML otherwise</li>
+</ul>
+
+<p>Install with <code>gem install rdf-rdfa</code></p>
 
 <h3>
-<a name="important-changes-from-previous-versions" class="anchor" href="#important-changes-from-previous-versions"><span class="octicon octicon-link"></span></a>Important changes from previous versions</h3>
+<a id="pure-ruby" class="anchor" href="#pure-ruby" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pure Ruby</h3>
+
+<p>In order to run as pure ruby (not requiring any C modules), this gem does not directly depend on <a href="http://www.nokogiri.org">Nokogiri</a>
+and falls back to using REXML. As REXML is not really an HTML parsing library, the results will only be useful if the HTML is well-formed.
+For best performance, install the Nokogiri gem as well.</p>
+
+<h3>
+<a id="important-changes-from-previous-versions" class="anchor" href="#important-changes-from-previous-versions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Important changes from previous versions</h3>
 
 <p>RDFa is an evolving standard, undergoing some substantial recent changes partly due to perceived competition
 with Microdata. As a result, the RDF Webapps working group is currently looking at changes in the processing model for RDFa. These changes are now being tracked in {RDF::RDFa::Reader}:</p>
 
 <h4>
-<a name="rdfa-11-lite" class="anchor" href="#rdfa-11-lite"><span class="octicon octicon-link"></span></a>RDFa 1.1 Lite</h4>
+<a id="rdfa-11-lite" class="anchor" href="#rdfa-11-lite" aria-hidden="true"><span class="octicon octicon-link"></span></a>RDFa 1.1 Lite</h4>
 
 <p>This version fully supports the limited syntax of <a href="http://www.w3.org/TR/2012/REC-rdfa-lite-20120607/" title="RDFa Lite 1.1">RDFa Lite 1.1</a>. This includes the ability to use
 <a href="https://github.com/property" class="user-mention">@property</a> exclusively.</p>
 
 <h4>
-<a name="vocabulary-expansion" class="anchor" href="#vocabulary-expansion"><span class="octicon octicon-link"></span></a>Vocabulary Expansion</h4>
+<a id="vocabulary-expansion" class="anchor" href="#vocabulary-expansion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Vocabulary Expansion</h4>
 
 <p>One of the issues with vocabularies was that they discourage re-use of existing vocabularies when terms from several vocabularies are used at the same time. As it is common (encouraged) for RDF vocabularies to form sub-class and/or sub-property relationships with well defined vocabularies, the RDFa vocabulary expansion mechanism takes advantage of this.</p>
 
@@ -90,7 +85,7 @@ to the output graph.</p>
 <p>{RDF::RDFa::Reader} implements this using the <code>#expand</code> method, which looks for <code>rdfa:usesVocabulary</code> properties within the output graph and performs such expansion. See an example in the usage section.</p>
 
 <h4>
-<a name="experimental-support-for-rdfacopy-template-expansion" class="anchor" href="#experimental-support-for-rdfacopy-template-expansion"><span class="octicon octicon-link"></span></a>Experimental support for rdfa:copy template expansion</h4>
+<a id="experimental-support-for-rdfacopy-template-expansion" class="anchor" href="#experimental-support-for-rdfacopy-template-expansion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Experimental support for rdfa:copy template expansion</h4>
 
 <p>RDFa 1.1 is just about an exact super-set of microdata, except for microdata's
 <code>@itemref</code> feature. Experimental support is added for <code>rdfa:copy</code> and <code>rdfa:Pattern</code> to get a similar effect using expansion. To use this,
@@ -116,7 +111,7 @@ from the output.</p>
 </code></pre>
 
 <h4>
-<a name="rdf-collections-lists" class="anchor" href="#rdf-collections-lists"><span class="octicon octicon-link"></span></a>RDF Collections (lists)</h4>
+<a id="rdf-collections-lists" class="anchor" href="#rdf-collections-lists" aria-hidden="true"><span class="octicon octicon-link"></span></a>RDF Collections (lists)</h4>
 
 <p>One significant RDF feature missing from RDFa was support for ordered collections, or lists. RDF supports this with special properties <code>rdf:first</code>, <code>rdf:rest</code>, and <code>rdf:nil</code>, but other RDF languages have first-class support for this concept. For example, in <a href="http://www.w3.org/TR/2011/WD-turtle-20110809/">Turtle</a>, a list can be defined as follows:</p>
 
@@ -133,7 +128,7 @@ from the output.</p>
 ]
 </code></pre>
 
-<p>defines a playlist with an ordered set of tracks. RDFa adds the @inlist attribute, which is used to identify values (object or literal) that are to be placed in a list. The same playlist might be defined in RDFa as follows:</p>
+<p>defines a playlist with an ordered set of tracks. RDFa adds the <a href="https://github.com/inlist" class="user-mention">@inlist</a> attribute, which is used to identify values (object or literal) that are to be placed in a list. The same playlist might be defined in RDFa as follows:</p>
 
 <pre><code>&lt;div vocab="http://schema.org/" typeof="MusicPlaylist"&gt;
   &lt;span property="name"&gt;Classic Rock Playlist&lt;/span&gt;
@@ -171,9 +166,10 @@ from the output.</p>
 <p>This basically does the same thing, but places each track in an rdf:List in the defined order.</p>
 
 <h4>
-<a name="magnetic-abouttypeof" class="anchor" href="#magnetic-abouttypeof"><span class="octicon octicon-link"></span></a>Magnetic @about/@typeof</h4>
+<a id="magnetic-abouttypeof" class="anchor" href="#magnetic-abouttypeof" aria-hidden="true"><span class="octicon octicon-link"></span></a>Magnetic @about/<a href="https://github.com/typeof" class="user-mention">@typeof</a>
+</h4>
 
-<p>The @typeof attribute has changed; previously, it always created a new subject, either using a resource from <a href="https://github.com/about" class="user-mention">@about</a>, <a href="https://github.com/resource" class="user-mention">@resource</a> and so forth. This has long been a source of errors for people using RDFa. The new rules cause @typeof to bind to a subject if used with <a href="https://github.com/about" class="user-mention">@about</a>, otherwise, to an object, if either used alone, or in combination with some other resource attribute (such as <a href="https://github.com/href" class="user-mention">@href</a>, <a href="https://github.com/src" class="user-mention">@src</a> or <a href="https://github.com/resource" class="user-mention">@resource</a>).</p>
+<p>The <a href="https://github.com/typeof" class="user-mention">@typeof</a> attribute has changed; previously, it always created a new subject, either using a resource from @about, <a href="https://github.com/resource" class="user-mention">@resource</a> and so forth. This has long been a source of errors for people using RDFa. The new rules cause <a href="https://github.com/typeof" class="user-mention">@typeof</a> to bind to a subject if used with @about, otherwise, to an object, if either used alone, or in combination with some other resource attribute (such as <a href="https://github.com/href" class="user-mention">@href</a>, <a href="https://github.com/src" class="user-mention">@src</a> or <a href="https://github.com/resource" class="user-mention">@resource</a>).</p>
 
 <p>For example:</p>
 
@@ -215,7 +211,7 @@ from the output.</p>
 </code></pre>
 
 <h3>
-<a name="support-for-embedded-rdfxml" class="anchor" href="#support-for-embedded-rdfxml"><span class="octicon octicon-link"></span></a>Support for embedded RDF/XML</h3>
+<a id="support-for-embedded-rdfxml" class="anchor" href="#support-for-embedded-rdfxml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support for embedded RDF/XML</h3>
 
 <p>If the document includes embedded RDF/XML, as is the case with many SVG documents, and the RDF::RDFXML gem is installed, the reader will add extracted triples to the default graph.</p>
 
@@ -252,7 +248,7 @@ from the output.</p>
 </code></pre>
 
 <h3>
-<a name="support-for-embedded-n-triples-or-turtle" class="anchor" href="#support-for-embedded-n-triples-or-turtle"><span class="octicon octicon-link"></span></a>Support for embedded N-Triples or Turtle</h3>
+<a id="support-for-embedded-n-triples-or-turtle" class="anchor" href="#support-for-embedded-n-triples-or-turtle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support for embedded N-Triples or Turtle</h3>
 
 <p>If the document includes a <code>&amp;lt;script&amp;gt;</code> element having an <code>@type</code> attribute whose value matches that of a loaded RDF reader (text/ntriples and text/turtle are loaded if they are availble), the data will be extracted and added to the default graph. For example:</p>
 
@@ -275,18 +271,19 @@ from the output.</p>
 
 <p>generates the following Turtle:</p>
 
-<p><a href="https://github.com/prefix" class="user-mention">@prefix</a> foo:  <a href="http://www.example.com/xyz#">http://www.example.com/xyz#</a> .
-   <a href="https://github.com/prefix" class="user-mention">@prefix</a> gr:   <a href="http://purl.org/goodrelations/v1#">http://purl.org/goodrelations/v1#</a> .
-   <a href="https://github.com/prefix" class="user-mention">@prefix</a> xsd:  <a href="http://www.w3.org/2001/XMLSchema#">http://www.w3.org/2001/XMLSchema#</a> .
-   <a href="https://github.com/prefix" class="user-mention">@prefix</a> rdfs: <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a> .</p>
+<pre><code>   @prefix foo:  &lt;http://www.example.com/xyz#&gt; .
+   @prefix gr:   &lt;http://purl.org/goodrelations/v1#&gt; .
+   @prefix xsd:  &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+   @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 
-<p>foo:myCompany
+   foo:myCompany
      a gr:BusinessEntity ;
-     rdfs:seeAlso <a href="http://www.example.com/xyz">http://www.example.com/xyz</a> ;
-     gr:hasLegalName "Hepp Industries Ltd."^^xsd:string .</p>
+     rdfs:seeAlso &lt;http://www.example.com/xyz&gt; ;
+     gr:hasLegalName "Hepp Industries Ltd."^^xsd:string .
+</code></pre>
 
 <h3>
-<a name="support-for-role-attribute" class="anchor" href="#support-for-role-attribute"><span class="octicon octicon-link"></span></a>Support for Role Attribute</h3>
+<a id="support-for-role-attribute" class="anchor" href="#support-for-role-attribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support for Role Attribute</h3>
 
 <p>The processor will generate RDF triples consistent with the <a href="http://www.w3.org/TR/role-attribute/" title="Role Attribute">Role Attr</a> specification.</p>
 
@@ -302,21 +299,26 @@ from the output.</p>
 </code></pre>
 
 <h3>
-<a name="support-for-microdata" class="anchor" href="#support-for-microdata"><span class="octicon octicon-link"></span></a>Support for microdata</h3>
+<a id="support-for-microdata" class="anchor" href="#support-for-microdata" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support for microdata</h3>
 
 <p>The RDFa reader will call out to <code>RDF::Microdata::Reader</code>, if an <code>@itemscope</code> attribute is detected, and the microdata reader is loaded. This avoids a common problem when pages contain both microdata and RDFa, and only one processor is run.</p>
 
+<h3>
+<a id="support-for-value-property" class="anchor" href="#support-for-value-property" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support for value property</h3>
+
+<p>In an <a href="https://www.w3.org/2001/sw/wiki/RDFa_1.1._Errata#Using_.3Cdata.3E.2C_.3Cinput.3E_and_.3Cli.3E_along_with_.40value">RDFA+HTML Errata</a>, it was suggested that the <code>@value</code> attribute could be parsed to obtain a numeric literal; this is consistent with how it's treated in microdata+rdfa. This processor now parses the value of an <code>@value</code> property to determine if it is an <code>xsd:integer</code>, <code>xsd:float</code>, or <code>xsd:double</code>, and uses a plain literal otherwise. The datatype can be overriden using the <code>@datatype</code> attribute.</p>
+
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <h3>
-<a name="reading-rdf-data-in-the-rdfa-format" class="anchor" href="#reading-rdf-data-in-the-rdfa-format"><span class="octicon octicon-link"></span></a>Reading RDF data in the RDFa format</h3>
+<a id="reading-rdf-data-in-the-rdfa-format" class="anchor" href="#reading-rdf-data-in-the-rdfa-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading RDF data in the RDFa format</h3>
 
 <pre><code>graph = RDF::Graph.load("etc/doap.html", :format =&gt; :rdfa)
 </code></pre>
 
 <h3>
-<a name="reading-rdf-data-with-vocabulary-expansion" class="anchor" href="#reading-rdf-data-with-vocabulary-expansion"><span class="octicon octicon-link"></span></a>Reading RDF data with vocabulary expansion</h3>
+<a id="reading-rdf-data-with-vocabulary-expansion" class="anchor" href="#reading-rdf-data-with-vocabulary-expansion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading RDF data with vocabulary expansion</h3>
 
 <pre><code>graph = RDF::Graph.load("etc/doap.html", :format =&gt; :rdfa, :vocab_expansion =&gt; true)
 </code></pre>
@@ -327,19 +329,19 @@ from the output.</p>
 </code></pre>
 
 <h3>
-<a name="reading-processor-graph" class="anchor" href="#reading-processor-graph"><span class="octicon octicon-link"></span></a>Reading Processor Graph</h3>
+<a id="reading-processor-graph" class="anchor" href="#reading-processor-graph" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading Processor Graph</h3>
 
 <pre><code>graph = RDF::Graph.load("etc/doap.html", :format =&gt; :rdfa, :rdfagraph =&gt; :processor)
 </code></pre>
 
 <h3>
-<a name="reading-both-processor-and-output-graphs" class="anchor" href="#reading-both-processor-and-output-graphs"><span class="octicon octicon-link"></span></a>Reading Both Processor and Output Graphs</h3>
+<a id="reading-both-processor-and-output-graphs" class="anchor" href="#reading-both-processor-and-output-graphs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reading Both Processor and Output Graphs</h3>
 
 <pre><code>graph = RDF::Graph.load("etc/doap.html", :format =&gt; :rdfa, :rdfagraph =&gt; [:output, :processor])
 </code></pre>
 
 <h3>
-<a name="writing-rdf-data-using-the-xhtmlrdfa-format" class="anchor" href="#writing-rdf-data-using-the-xhtmlrdfa-format"><span class="octicon octicon-link"></span></a>Writing RDF data using the XHTML+RDFa format</h3>
+<a id="writing-rdf-data-using-the-xhtmlrdfa-format" class="anchor" href="#writing-rdf-data-using-the-xhtmlrdfa-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing RDF data using the XHTML+RDFa format</h3>
 
 <pre><code>require 'rdf/rdfa'
 
@@ -357,12 +359,12 @@ puts graph.dump(:rdfa, :prefixes =&gt; prefixes)
 </code></pre>
 
 <h3>
-<a name="template-based-writer" class="anchor" href="#template-based-writer"><span class="octicon octicon-link"></span></a>Template-based Writer</h3>
+<a id="template-based-writer" class="anchor" href="#template-based-writer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Template-based Writer</h3>
 
 <p>The RDFa writer uses <a href="http://haml-lang.com/">Haml</a> templates for code generation. This allows
-fully customizable RDFa output in a variety of host languages. The <a>default
-template</a> generates human readable HTML5
-output. A <a>minimal template</a> generates HTML,
+fully customizable RDFa output in a variety of host languages. The default
+template generates human readable HTML5
+output. A minimal template generates HTML,
 which is not intended for human consumption.</p>
 
 <p>To specify an alternative Haml template, consider the following:</p>
@@ -376,7 +378,7 @@ RDF::RDFa::Writer.buffer(:haml =&gt; RDF::RDFa::Writer::MIN_HAML) &lt;&lt; graph
 
 <ul>
 <li>
-<p><em>doc</em>: Document Template, takes an ordered list of <em>subject</em>s and yields each one to be rendered. From {RDF::RDFa::Writer#render_document}:</p>
+<p><em>doc</em>: Document Template, takes an ordered list of _subject_s and yields each one to be rendered. From {RDF::RDFa::Writer#render_document}:</p>
 
 <p>{include:RDF::RDFa::Writer#render_document}</p>
 
@@ -398,11 +400,11 @@ to create output similar to the following:</p>
 <p>Options passed to the Writer are used to supply <em>lang</em> and <em>base</em> locals.
 <em>prefix</em> is generated based upon prefixes found from the default profiles, as well
 as those provided by a previous Reader. <em>title</em> is taken from the first top-level subject
-having an appropriate title property (as defined by the <em>heading\</em>predicates_ option).</p>
+having an appropriate title property (as defined by the <em>heading_predicates</em> option).</p>
 </li>
 <li>
-<p><em>subject</em>: Subject Template, take a <em>subject</em> and an ordered list of <em>predicate</em>s and yields
-each <em>predicate</em> to be rendered. From {RDF::RDFa::Writer#render_subject}:</p>
+<p><em>subject</em>: Subject Template, take a <em>subject</em> and an ordered list of <em>predicate_s and yields
+each _predicate</em> to be rendered. From {RDF::RDFa::Writer#render_subject}:</p>
 
 <p>{include:RDF::RDFa::Writer#render_subject}</p>
 
@@ -417,7 +419,7 @@ create output similar to the following:</p>
 <p>Note that if <em>typeof</em> is defined, in this template, it will generate a textual description.</p>
 </li>
 <li>
-<p><em>property\</em>value_: Property Value Template, used for predicates having a single value; takes
+<p><em>property_value</em>: Property Value Template, used for predicates having a single value; takes
 a <em>predicate</em>, and a single-valued Array of <em>objects</em>. From {RDF::RDFa::Writer#render_property}:</p>
 
 <p>{include:RDF::RDFa::Writer#render_property}</p>
@@ -425,7 +427,7 @@ a <em>predicate</em>, and a single-valued Array of <em>objects</em>. From {RDF::
 <p>In addition to <em>predicate</em> and <em>objects</em>, the template takes <em>inlist</em> to indicate that the
 property is part of an <code>rdf:List</code>.</p>
 
-<p>Also, if the predicate is identified as a <em>heading predicate</em> (via <em>:heading\</em>predicates_ option),
+<p>Also, if the predicate is identified as a <em>heading predicate</em> (via <em>:heading_predicates</em> option),
 it will generate a heading element, and may use the value as the document title.</p>
 
 <p>Each <em>object</em> is yielded to the calling block, and the result is rendered, unless nil.
@@ -445,8 +447,8 @@ descriptions.</p>
 <p>Note the use of methods defined in {RDF::RDFa::Writer} useful in rendering the output.</p>
 </li>
 <li>
-<p><em>property\</em>values_: Similar to <em>property\</em>value_, but for predicates having more than one value.
-Locals are identical to <em>property\</em>values_, but <em>objects</em> is expected to have more than one value. Described further in {RDF::RDFa::Writer#render_property}.</p>
+<p><em>property_values</em>: Similar to <em>property_value</em>, but for predicates having more than one value.
+Locals are identical to <em>property_values</em>, but <em>objects</em> is expected to have more than one value. Described further in {RDF::RDFa::Writer#render_property}.</p>
 
 <p>In this case, and unordered list is used for output. Creates output similar to the following:</p>
 
@@ -468,8 +470,8 @@ Locals are identical to <em>property\</em>values_, but <em>objects</em> is expec
 &lt;/div&gt;
 </code></pre>
 
-<p>If <em>property\</em>values_ does not exist, repeated values will be replecated
-using <em>property\</em>value_.</p>
+<p>If <em>property_values</em> does not exist, repeated values will be replecated
+using <em>property_value</em>.</p>
 </li>
 <li>
 <p>Type-specific templates.
@@ -483,15 +485,17 @@ the associated Hash. For example:</p>
     :subject =&gt; "...",
     :property_value =&gt; "...",
     :property_values =&gt; "...",
-    RDF::URI("<a href="http://schema.org/Person%22">http://schema.org/Person"</a>) =&gt; {
+    RDF::URI("<a href="http://schema.org/Person">http://schema.org/Person</a>") =&gt; {
       :subject =&gt; "...",
       :property_value =&gt; "...",
       :property_values =&gt; "...",
     }
   }</p>
 </li>
-</ul><h2>
-<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+</ul>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <ul>
 <li>
@@ -501,15 +505,17 @@ the associated Hash. For example:</p>
 <li>
 <a href="https://rubygems.org/gems/haml">Haml</a> (&gt;= 4.0)</li>
 <li>
-<a href="https://rubygems.org/gems/htmlentities">HTMLEntities</a> ('&gt;= 4.3.1')</li>
-<li>Soft dependency on <a href="http://rubygems.org/gems/nokogiri">Nokogiri</a> (&gt;= 1.5.9)</li>
-</ul><h2>
-<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+<a href="https://rubygems.org/gems/htmlentities">HTMLEntities</a> (&gt;= 4.3.1)</li>
+<li>Soft dependency on <a href="http://rubygems.org/gems/nokogiri">Nokogiri</a> (&gt;= 1.6.1)</li>
+</ul>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <p>Full documentation available on <a href="http://rubydoc.info/github/ruby-rdf/rdf-rdfa/frames">Rubydoc.info</a></p>
 
 <h3>
-<a name="principle-classes" class="anchor" href="#principle-classes"><span class="octicon octicon-link"></span></a>Principle Classes</h3>
+<a id="principle-classes" class="anchor" href="#principle-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Principle Classes</h3>
 
 <ul>
 <li>{RDF::RDFa::Format}
@@ -533,47 +539,59 @@ Asserts :svg format, image/svg+xml mime-type and .svg file extension.</li>
 <li>{RDF::RDFa::Context}</li>
 <li>{RDF::RDFa::Expansion}</li>
 <li>{RDF::RDFa::Writer}</li>
-</ul><h3>
-<a name="additional-vocabularies" class="anchor" href="#additional-vocabularies"><span class="octicon octicon-link"></span></a>Additional vocabularies</h3>
+</ul>
+
+<h3>
+<a id="additional-vocabularies" class="anchor" href="#additional-vocabularies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional vocabularies</h3>
 
 <ul>
 <li>{RDF::PTR}</li>
 <li>{RDF::RDFA}</li>
 <li>{RDF::XML}</li>
 <li>{RDF::XSI}</li>
-</ul><h2>
-<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+</ul>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
 
 <ul>
 <li>Add support for LibXML and REXML bindings, and use the best available</li>
 <li>Consider a SAX-based parser for improved performance</li>
-</ul><h2>
-<a name="resources" class="anchor" href="#resources"><span class="octicon octicon-link"></span></a>Resources</h2>
+</ul>
+
+<h2>
+<a id="resources" class="anchor" href="#resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resources</h2>
 
 <ul>
 <li><a href="http://rubygems.org/gems/rdf">RDF.rb</a></li>
 <li><a href="http://rdf.greggkellogg.net/distiller">Distiller</a></li>
 <li><a href="http://rubydoc.info/github/ruby-rdf/rdf-rdfa/frames">Documentation</a></li>
-<li><a>History</a></li>
+<li>History</li>
 <li><a href="http://www.w3.org/TR/2012/REC-rdfa-core-20120607/" title="RDFa 1.1 Core">RDFa 1.1 Core</a></li>
 <li><a href="http://www.w3.org/TR/2012/REC-xhtml-rdfa-20120607/" title="XHTML+RDFa 1.1">XHTML+RDFa 1.1</a></li>
 <li><a href="http://rdfa.info/test-suite/" title="RDFa test suite">RDFa-test-suite</a></li>
-</ul><h2>
-<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+</ul>
+
+<h2>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span class="octicon octicon-link"></span></a>Author</h2>
 
 <ul>
 <li>
 <a href="http://github.com/gkellogg">Gregg Kellogg</a> - <a href="http://greggkellogg.net/">http://greggkellogg.net/</a>
 </li>
-</ul><h2>
-<a name="contributors" class="anchor" href="#contributors"><span class="octicon octicon-link"></span></a>Contributors</h2>
+</ul>
+
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h2>
 
 <ul>
 <li>
 <a href="http://github.com/njh">Nicholas Humfrey</a> - <a href="http://njh.me/">http://njh.me/</a>
 </li>
-</ul><h2>
-<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+</ul>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
 <p>This repository uses <a href="https://github.com/nvie/gitflow">Git Flow</a> to mange development and release activity. All submissions <em>must</em> be on a feature branch based on the <em>develop</em> branch to ease staging and integration.</p>
 
@@ -589,14 +607,16 @@ list in the the <code>README</code>. Alphabetical order applies.</li>
 <li>Do note that in order for us to merge any non-trivial changes (as a rule
 of thumb, additions larger than about 15 lines of code), we need an
 explicit <a href="http://lists.w3.org/Archives/Public/public-rdf-ruby/2010May/0013.html">public domain dedication</a> on record from you.</li>
-</ul><h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
-
-<p>This is free and unencumbered public domain software. For more information,
-see <a href="http://unlicense.org/">http://unlicense.org/</a> or the accompanying {file:UNLICENSE} file.</p>
+</ul>
 
 <h2>
-<a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>FEEDBACK</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This is free and unencumbered public domain software. For more information,
+see <a href="http://unlicense.org/">http://unlicense.org/</a> or the accompanying <a href="UNLICENSE">UNLICENSE</a> file.</p>
+
+<h2>
+<a id="feedback" class="anchor" href="#feedback" aria-hidden="true"><span class="octicon octicon-link"></span></a>FEEDBACK</h2>
 
 <ul>
 <li><a href="mailto:gregg@greggkellogg.net">gregg@greggkellogg.net</a></li>
@@ -604,18 +624,16 @@ see <a href="http://unlicense.org/">http://unlicense.org/</a> or the accompanyin
 <li><a href="http://github.com/ruby-rdf/rdf-rdfa">http://github.com/ruby-rdf/rdf-rdfa</a></li>
 <li><a href="http://lists.w3.org/Archives/Public/public-rdf-ruby/">http://lists.w3.org/Archives/Public/public-rdf-ruby/</a></li>
 </ul>
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Rdf-rdfa maintained by <a href="https://github.com/ruby-rdf">ruby-rdf</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/ruby-rdf/rdf-rdfa">Rdf-rdfa</a> is maintained by <a href="https://github.com/ruby-rdf">ruby-rdf</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
+
